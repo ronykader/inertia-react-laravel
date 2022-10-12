@@ -5,23 +5,25 @@ import TextInput from "@/Components/TextInput";
 import { useForm, usePage } from "@inertiajs/inertia-react";
 import { useEffect } from "react";
 
-const Clientform = () => {
-    const { data, setData, post, processing, errors, reset } = useForm({
-        name: "",
-        project_url: "",
-        login_url: "",
-        redirect_url: "",
-        logout_url: "",
-        logo_url: "",
-        client_id: "",
-        client_secreet: "",
+const Clientform = (props) => {
+    let client = props.client;
+    console.log(client.id);
+    const { data, setData, patch, processing, errors, reset } = useForm({
+        name: client.name,
+        project_url: client.project_url,
+        login_url: client.login_url,
+        redirect_url: client.redirect_url,
+        logout_url: client.logout_url,
+        logo_url: client.logo_url,
+        client_id: client.client_id,
+        client_secreet: client.client_secreet,
     });
 
     const { flash } = usePage().props;
 
     useEffect(() => {
         return () => {
-            reset("name", "project_url", "password", "password_confirmation");
+            reset("name", "project_url", "login_url");
         };
     }, []);
 
@@ -36,8 +38,8 @@ const Clientform = () => {
 
     const submit = (e) => {
         e.preventDefault();
-        post(route("oidc.store"));
-        reset();
+
+        patch(route("oidc.update", client.id));
     };
 
     return (

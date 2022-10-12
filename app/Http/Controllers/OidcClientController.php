@@ -15,7 +15,10 @@ class OidcClientController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Clients');
+        $clients = OidcClient::all();
+        return Inertia::render('Clients', [
+            'clients' => $clients
+        ]);
     }
 
     /**
@@ -57,7 +60,7 @@ class OidcClientController extends Controller
         $client->client_id = $request->client_id;
         $client->client_secreet = $request->client_secreet;
         $client->save();
-        return redirect()->back()->with('FlsMsg','Successfully Updated');
+        return redirect()->back()->with('FlsMsg', 'Successfully Updated');
     }
 
     /**
@@ -77,9 +80,12 @@ class OidcClientController extends Controller
      * @param  \App\Models\OidcClient  $oidcClient
      * @return \Illuminate\Http\Response
      */
-    public function edit(OidcClient $oidcClient)
+    public function edit(OidcClient $oidcClient, $id)
     {
-        //
+        $client = OidcClient::findOrFail($id);
+        return Inertia::render('ClientEdit', [
+            'client' => $client
+        ]);
     }
 
     /**
@@ -89,9 +95,19 @@ class OidcClientController extends Controller
      * @param  \App\Models\OidcClient  $oidcClient
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, OidcClient $oidcClient)
+    public function update(Request $request, $id)
     {
-        //
+        $client = OidcClient::findOrFail($id);
+        $client->name = $request->name;
+        $client->project_url = $request->project_url;
+        $client->login_url = $request->login_url;
+        $client->logout_url = $request->logout_url;
+        $client->logo_url = $request->logo_url;
+        $client->redirect_url = $request->redirect_url;
+        $client->client_id = $request->client_id;
+        $client->client_secreet = $request->client_secreet;
+        $client->save();
+        return redirect()->back()->with('FlsMsg', 'Successfully Updated');
     }
 
     /**
@@ -100,8 +116,10 @@ class OidcClientController extends Controller
      * @param  \App\Models\OidcClient  $oidcClient
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OidcClient $oidcClient)
+    public function destroy($id)
     {
-        //
+        $client = OidcClient::findOrFail($id);
+        $client->delete();
+        return redirect()->back()->with('FlsMsg', 'Successfully Deleted');
     }
 }
