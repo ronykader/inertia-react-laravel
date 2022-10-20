@@ -14,7 +14,7 @@ const Clientlist = ({ client }) => {
                 <td>{client.redirect_url}</td>
                 <td>{client.logout_url}</td>
 
-                <td>
+                <td className="w-3/5">
                     <Link
                         href={route("oidc.edit", client.id)}
                         className="inline-block text-sm font-semibold py-2.5 px-4 bg-sky-900 text-white hover:bg-sky-700 mr-1"

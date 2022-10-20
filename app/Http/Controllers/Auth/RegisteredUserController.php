@@ -47,7 +47,7 @@ class RegisteredUserController extends Controller
         ]);
 
         event(new Registered($user));
-
+        return redirect()->back()->with('FlsMsg', 'Successfully account created please wait for approval');
         // Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);

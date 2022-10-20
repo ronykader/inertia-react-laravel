@@ -29,7 +29,7 @@ export default function Clients(props) {
                                         <th>Login URL</th>
                                         <th>Redirect URL</th>
                                         <th>Logout URL</th>
-                                        <th>Action</th>
+                                        <th width="400">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>

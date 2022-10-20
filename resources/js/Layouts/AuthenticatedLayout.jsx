@@ -38,6 +38,15 @@ export default function Authenticated({ auth, header, children }) {
                                     Clients
                                 </NavLink>
                             </div>
+
+                            <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink
+                                    href={route("oidc.create")}
+                                    active={route().current("oidc.create")}
+                                >
+                                    Add Client
+                                </NavLink>
+                            </div>
                         </div>
 
                         <div className="hidden sm:flex sm:items-center sm:ml-6">
