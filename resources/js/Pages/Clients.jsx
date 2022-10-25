@@ -20,16 +20,14 @@ export default function Clients(props) {
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 bg-white border-b border-gray-200">
-                            <table className="table-auto w-full">
+                            <table className="table-auto w-full text-center">
                                 <thead>
                                     <tr>
                                         <th>SL</th>
                                         <th>Name</th>
-                                        <th>Project URL</th>
                                         <th>Login URL</th>
                                         <th>Redirect URL</th>
-                                        <th>Logout URL</th>
-                                        <th width="400">Action</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>

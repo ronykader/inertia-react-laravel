@@ -15,6 +15,7 @@ class OidcClientController extends Controller
      */
     public function index()
     {
+
         $clients = OidcClient::all();
         return Inertia::render('Clients', [
             'clients' => $clients

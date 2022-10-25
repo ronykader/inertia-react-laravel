@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CitizenController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
@@ -27,9 +28,13 @@ Route::get('/', function () {
 });
 
 
-/**Dashboard Route**/ 
-Route::get('/dashboard',[DashboardController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
-Route::resource('oidc',OidcClientController::class)->middleware(['auth', 'verified']);
+/**Dashboard Route**/
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::resource('oidc', OidcClientController::class)->middleware(['auth', 'verified']);
+
+Route::get('/dasbhoard/citizen', [CitizenController::class, 'index'])->name('citizen.index');
+Route::get('/dasbhoard/{citizen}/citizen', [CitizenController::class, 'show'])->name('citizen.show');
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
