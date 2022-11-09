@@ -56,6 +56,17 @@ export default function Authenticated({ auth, header, children }) {
                                     Citizen
                                 </NavLink>
                             </div>
+
+                            <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink
+                                    href={route("summary.dashboard")}
+                                    active={route().current(
+                                        "summary.dashboard"
+                                    )}
+                                >
+                                    Summary Dashboard
+                                </NavLink>
+                            </div>
                         </div>
 
                         <div className="hidden sm:flex sm:items-center sm:ml-6">

@@ -7,7 +7,6 @@ import { useEffect } from "react";
 
 const Clientform = (props) => {
     let client = props.client;
-    console.log(client.id);
     const { data, setData, patch, processing, errors, reset } = useForm({
         name: client.name,
         project_url: client.project_url,

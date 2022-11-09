@@ -5,7 +5,6 @@ import Citizenlist from "./Citizenlist";
 export default function Clients(props) {
     let citizens = props.citizens.data;
     let links = props.citizens.links;
-    console.log(links);
     return (
         <AuthenticatedLayout
             auth={props.auth}
@@ -20,6 +19,15 @@ export default function Clients(props) {
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div className="text-right mb-3">
+                        <button
+                            className="inline-block text-sm font-semibold py-2.5 px-4 bg-red-700 text-white hover:bg-red-500 mr-1"
+                            onClick={() => handleReset("nid", user.citizen_id)}
+                        >
+                            Reset NID
+                        </button>
+                    </div>
+
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 bg-white border-b border-gray-200">
                             <table className="table-auto w-full text-center">
@@ -29,7 +37,7 @@ export default function Clients(props) {
                                         <th>Name</th>
                                         <th>Moble</th>
                                         <th>Nid</th>
-                                        <th>Action</th>
+                                        <th className="text-right">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -45,8 +53,9 @@ export default function Clients(props) {
                             <nav aria-label="Page navigation example">
                                 <ul className="inline-flex -space-x-px mt-6">
                                     <li>
-                                        {links.map((link) => (
+                                        {links.map((link, index) => (
                                             <InertiaLink
+                                                key={index}
                                                 className="py-2 px-3 ml-0 leading-tight text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                                                 href={link.url}
                                             >

@@ -20,7 +20,7 @@ class UserAuth extends Authenticatable
 
     protected $casts = ['id' => 'string'];
 
-    protected $fillable = ['email', 'mobile', 'citizen_id', 'password'];
+    protected $fillable = ['email', 'mobile', 'citizen_id', 'password', 'nid'];
 
 
     /**
@@ -39,6 +39,10 @@ class UserAuth extends Authenticatable
      * @return void
      */
     public function profile()
+    {
+        return $this->hasOne(UserProfile::class, 'citizen_id', 'citizen_id');
+    }
+    public function getProfile()
     {
         return $this->hasOne(UserProfile::class, 'citizen_id', 'citizen_id');
     }

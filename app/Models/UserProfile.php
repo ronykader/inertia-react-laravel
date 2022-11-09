@@ -19,5 +19,5 @@ class UserProfile extends Authenticatable
 
     protected $casts = ['id' => 'string'];
 
-    protected $fillable = ['mobile', 'citizen_id', 'password', 'name', 'profile_path'];
+    protected $fillable = ['mobile', 'citizen_id', 'password', 'name', 'profile_path', 'date_of_birth'];
 }

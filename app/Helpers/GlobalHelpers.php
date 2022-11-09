@@ -60,17 +60,8 @@ function getProfilePhoto($profilePath, $userId)
 {
     $profilePath = getProfilePath($profilePath, $userId);
     $fileName = $userId . '.png';
-    if (file_exists($profilePath . $fileName)) {
-        $fileSize =  filesize($profilePath . $fileName);
-        if ($fileSize < 1048576)
-            return 'data:image/png;base64,' . base64_encode(file_get_contents($profilePath . $fileName));
-        else
-            return '';
-    } else
-        return '';
+    return 'data:image/png;base64,' . base64_encode(file_get_contents($profilePath . $fileName));
 }
-
-
 
 
 /**
@@ -85,31 +76,6 @@ function getProfilePath($profilePath, $userId)
     if (!is_numeric($profilePath))
         $profilePath = strtotime($profilePath);
 
-    $profilePath = 'nid_profile/' . date('Y/m/d', $profilePath) . '/' . $userId . '/';
-
-    $temp = explode('/', $profilePath);
-    $path = '';
-    foreach ($temp as $val) {
-        if ($path != '')
-            $path = $path . '/';
-        $path = $path . $val;
-        if (!is_dir($path))
-            mkdir($path);
-    }
-
+    $profilePath = 'https://beta-idp.stage.mygov.bd/nid_profile/' . date('Y/m/d', $profilePath) . '/' . $userId . '/';
     return $profilePath;
-}
-
-
-
-/**
- * Get Invoice Number
- *
- * @return void
- */
-function referUrl()
-{
-    $const = session()->get('referer');
-
-    return $const;
 }

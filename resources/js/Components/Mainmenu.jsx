@@ -1,7 +1,6 @@
 import { Link } from "@inertiajs/inertia-react";
 
 const Mainmenu = ({ props }) => {
-    console.log(props);
     return (
         <div>
             {props.auth.user ? (

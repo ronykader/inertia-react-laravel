@@ -33,7 +33,7 @@ export default function Clients(props) {
                                 <tbody>
                                     {clients.map((client) => (
                                         <Clientlist
-                                            key={client.id}
+                                            key={client.user_id}
                                             client={client}
                                         />
                                     ))}

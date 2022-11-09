@@ -19,7 +19,7 @@ class UserIdentity extends Authenticatable
 
     protected $casts = ['id' => 'string'];
 
-    protected $fillable = ['email', 'mobile', 'citizen_id', 'password'];
+    protected $fillable = ['email', 'mobile', 'citizen_id', 'password', 'nid', 'nid_verify'];
 
 
 

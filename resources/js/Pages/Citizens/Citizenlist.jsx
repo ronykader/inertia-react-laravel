@@ -9,7 +9,7 @@ const Citizenlist = ({ citizen }) => {
                 <td>{citizen.mobile}</td>
                 <td>{citizen.nid}</td>
 
-                <td>
+                <td className="text-right">
                     <Link
                         href={route("citizen.show", citizen.id)}
                         className="inline-block text-sm font-semibold py-2.5 px-4 bg-sky-900 text-white hover:bg-sky-700 mr-1"
@@ -20,13 +20,6 @@ const Citizenlist = ({ citizen }) => {
                     <button className="inline-block text-sm font-semibold py-2.5 px-4 bg-indigo-900 text-white hover:bg-indigo-700 mr-1">
                         Application
                     </button>
-
-                    <Link
-                        className="inline-block text-sm font-semibold py-2.5 px-4 bg-red-700 text-white hover:bg-red-500"
-                        href="#"
-                    >
-                        Reset
-                    </Link>
                 </td>
             </tr>
         </>
