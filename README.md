@@ -6,8 +6,8 @@
 -   InertiaJs (0.11.0)
 -   Laravel (9.38.0)
 -   MySQL (8.0.31)
--   PHP (8.0.31)
+-   PHP (8.1.2)
 
 #### For deployment instruction....
 
-    please follow this [link]: https://bootcamp.laravel.com/deploying
+    please follow this [link](https://bootcamp.laravel.com/deploying)
