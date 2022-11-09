@@ -14,7 +14,7 @@ class SummaryDashboardController extends Controller
         if (!empty($request->startDate) && !empty($request->endDate)) {
             $data =  Http::timeout(60)->withHeaders([
                 'Accept' => 'application/json'
-            ])->withOptions(["verify" => false])->post('https://www.mygov.bd/api/new-a2i-dashboard', [
+            ])->withOptions(["verify" => false])->post(config('app.summary_api'), [
                 'user' => 'a2i-dashboard',
                 'password' => '9e7e781a60daf1b5fd42d777ade1afc4',
                 'date' => date('Y-m-d', strtotime($request->endDate)),
