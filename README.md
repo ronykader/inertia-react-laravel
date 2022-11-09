@@ -10,6 +10,8 @@
 
 #### For deployment instruction....
 
-please follow this [link](https://bootcamp.laravel.com/deploying)
+Please follow this [link](https://bootcamp.laravel.com/deploying)
 
-[This is an external link to genome.gov](https://www.genome.gov/)
+#### Note:
+
+    For summary dashboard need to add SUMMARY_API_ENDPOINT in your env file
